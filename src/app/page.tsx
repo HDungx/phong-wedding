@@ -10,10 +10,12 @@ import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
 import Petals from "@/components/Petals";
 import Reveal from "@/components/Reveal";
+import Cover from "@/components/Cover";
 
 export default function Page() {
   return (
     <>
+      <Cover />
       <Petals />
       <MusicPlayer />
       <main className="max-w-2xl mx-auto bg-white shadow-2xl relative min-h-screen md:my-6 md:rounded-3xl overflow-hidden">
