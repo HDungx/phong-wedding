@@ -1,10 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Alex_Brush, Cormorant_Garamond, Montserrat } from 'next/font/google';
 import './globals.css';
-
-const script = Alex_Brush({ weight: '400', subsets: ['latin', 'vietnamese'], variable: '--font-script' });
-const serif = Cormorant_Garamond({ weight: ['400', '600', '700'], style: ['normal', 'italic'], subsets: ['latin', 'vietnamese'], variable: '--font-serif' });
-const sans = Montserrat({ weight: ['300', '400', '500', '600'], subsets: ['latin', 'vietnamese'], variable: '--font-sans' });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://phong-wedding.vercel.app';
 const title = 'Thiệp Cưới Online - Thanh Phong & Mỹ Nhi';
@@ -21,7 +16,12 @@ export const viewport: Viewport = { themeColor: '#8B0000', width: 'device-width'
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="vi" className={`${script.variable} ${serif.variable} ${sans.variable}`}>
+    <html lang="vi">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet" />
+      </head>
       <body className="bg-creamBG font-sans text-gray-800 antialiased relative overflow-x-hidden">{children}</body>
     </html>
   );
