@@ -31,15 +31,14 @@ export const wedding = {
     mapUrl: 'https://maps.google.com/?cid=12288145105314434140',
   },
   music: { videoId: '72qtZ2ezb44', start: 139, title: 'Gói Con Tim Làm Quà' },
-  heroPhoto: '/images/1_3.jpg',
+  heroPhoto: '/images/photo-1.jpg',
   heroFallback: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80',
   gallery: [
-    { src: '/images/1_3.jpg', fallback: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80' },
-    { src: '/images/4_3.jpg', fallback: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80' },
-    { src: '/images/5_3.jpg', fallback: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=80' },
-    { src: '/images/6_3.jpg', fallback: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80' },
-    { src: '/images/8_3.jpg', fallback: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80' },
-    { src: '/images/9_3.jpg', fallback: 'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=900&q=80' },
+    { src: '/images/photo-1.jpg', fallback: 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=900&q=80' },
+    { src: '/images/photo-2.jpg', fallback: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=900&q=80' },
+    { src: '/images/photo-3.jpg', fallback: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=900&q=80' },
+    { src: '/images/photo-4.jpg', fallback: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=900&q=80' },
+    { src: '/images/photo-5.jpg', fallback: 'https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=900&q=80' },
   ],
   // TODO: thay bằng số tài khoản + ảnh QR thật (đặt ảnh vào public/images/qr-groom.png, qr-bride.png)
   gifts: {

@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
-  openGraph: { title, description, type: 'website', locale: 'vi_VN', images: [{ url: '/images/1_3.jpg' }] },
+  openGraph: { title, description, type: 'website', locale: 'vi_VN', images: [{ url: '/images/photo-1.jpg' }] },
 };
 
 export const viewport: Viewport = { themeColor: '#8B0000', width: 'device-width', initialScale: 1 };
