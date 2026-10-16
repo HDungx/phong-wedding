@@ -1,13 +1,16 @@
+'use client';
 import { Heart } from 'lucide-react';
 import { wedding as w } from '@/lib/config';
 import SafeImage from './SafeImage';
+import { useLightbox, GROOM_INDEX, BRIDE_INDEX } from './Lightbox';
 
-function Side({ title, role, p }: { title: string; role: string; p: typeof w.groom | typeof w.bride }) {
+function Side({ title, role, p, index }: { title: string; role: string; p: typeof w.groom | typeof w.bride; index: number }) {
+  const show = useLightbox();
   return (
     <div className="flex flex-col items-center bg-creamBG p-5 rounded-2xl border border-weddingGold/30 shadow-sm">
-      <div className="w-36 h-48 rounded-2xl overflow-hidden border-2 border-weddingGold shadow-md mb-4">
+      <button type="button" onClick={() => show(index)} aria-label={`Xem ảnh ${role}`} className="w-36 h-48 rounded-2xl overflow-hidden border-2 border-weddingGold shadow-md mb-4">
         <SafeImage src={p.photo} fallback={p.photoFallback} alt={`${role} ${p.name}`} className="w-full h-full object-cover object-top" />
-      </div>
+      </button>
       <h3 className="font-serif font-bold text-base text-weddingRed uppercase tracking-wider mb-1">{title}</h3>
       <p className="text-xs text-gray-600 mb-1">Thân phụ: <span className="font-medium text-gray-800">{p.father}</span></p>
       <p className="text-xs text-gray-600 mb-3">Thân mẫu: <span className="font-medium text-gray-800">{p.mother}</span></p>
@@ -29,8 +32,8 @@ export default function Invitation() {
           &ldquo;Yêu là tìm thấy hạnh phúc của mình trong hạnh phúc của người khác. Trân trọng kính mời quý khách đến chung vui trong ngày trọng đại của chúng tôi.&rdquo;
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-          <Side title="Gia Đình Nhà Trai" role="Chú Rể" p={w.groom} />
-          <Side title="Gia Đình Nhà Gái" role="Cô Dâu" p={w.bride} />
+          <Side title="Gia Đình Nhà Trai" role="Chú Rể" p={w.groom} index={GROOM_INDEX} />
+          <Side title="Gia Đình Nhà Gái" role="Cô Dâu" p={w.bride} index={BRIDE_INDEX} />
         </div>
       </div>
     </section>

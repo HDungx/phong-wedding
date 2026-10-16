@@ -4,7 +4,11 @@ import { useEffect, useRef, useState } from 'react';
 // <img> thường: dùng ảnh thật trong /public/images, tự chuyển sang ảnh dự phòng nếu chưa có file.
 export default function SafeImage({ src, fallback, alt, className, priority }: { src: string; fallback: string; alt: string; className?: string; priority?: boolean }) {
   const [url, setUrl] = useState(src);
+  const [prevSrc, setPrevSrc] = useState(src);
   const ref = useRef<HTMLImageElement>(null);
+
+  // Đổi prop src (vd. next ảnh trong lightbox) thì phải đổi ảnh theo
+  if (src !== prevSrc) { setPrevSrc(src); setUrl(src); }
 
   // Ảnh lỗi trước khi React hydrate sẽ không kích hoạt onError → kiểm tra lại khi mount
   useEffect(() => {

@@ -11,10 +11,11 @@ import MusicPlayer from "@/components/MusicPlayer";
 import Petals from "@/components/Petals";
 import Reveal from "@/components/Reveal";
 import Cover from "@/components/Cover";
+import LightboxProvider from "@/components/Lightbox";
 
 export default function Page() {
   return (
-    <>
+    <LightboxProvider>
       <Cover />
       <Petals />
       <MusicPlayer />
@@ -41,6 +42,6 @@ export default function Page() {
         </Reveal>
         <Footer />
       </main>
-    </>
+    </LightboxProvider>
   );
 }
