@@ -20,11 +20,11 @@ export const wedding = {
       "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=500&q=80",
   },
   // 12/12/2026 là Thứ Bảy (bản HTML gốc ghi nhầm "Chủ Nhật")
-  dateISO: "2026-12-12T17:00:00+07:00",
+  dateISO: "2026-12-12T17:30:00+07:00",
   dateLabel: "Thứ Bảy, Ngày 12 Tháng 12 Năm 2026",
   lunarLabel: "Nhằm Ngày 04 Tháng 11 Năm Bính Ngọ",
-  welcomeTime: "17:00",
-  partyTime: "18:30",
+  welcomeTime: "17:30",
+  partyTime: "19:00",
   rsvpDeadline: "05/12/2026",
   venue: {
     name: "NHÀ HÀNG HƯƠNG PHỐ",
