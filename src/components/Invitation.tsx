@@ -2,6 +2,8 @@
 import { Heart } from 'lucide-react';
 import { wedding as w } from '@/lib/config';
 import SafeImage from './SafeImage';
+import Reveal from './Reveal';
+import { FloralSpray, OrnateFrame } from './Ornaments';
 import { useLightbox, GROOM_INDEX, BRIDE_INDEX } from './Lightbox';
 
 function Side({ title, role, p, index }: { title: string; role: string; p: typeof w.groom | typeof w.bride; index: number }) {
@@ -23,18 +25,21 @@ function Side({ title, role, p, index }: { title: string; role: string; p: typeo
 
 export default function Invitation() {
   return (
-    <section id="loi-moi" className="py-12 px-6 bg-creamBG text-center">
-      <div className="wedding-border p-6 md:p-8 rounded-2xl bg-white shadow-lg">
-        <Heart className="mx-auto mb-4 text-weddingRed" size={34} fill="currentColor" />
-        <p className="text-xs uppercase tracking-widest font-semibold text-weddingGold mb-1">Thư Mời Trân Trọng</p>
-        <h2 className="font-script text-5xl text-weddingRed mb-3">Lễ Thành Hôn</h2>
-        <p className="font-serif italic text-gray-600 mb-8 leading-relaxed text-sm md:text-base">
-          &ldquo;Yêu là tìm thấy hạnh phúc của mình trong hạnh phúc của người khác. Trân trọng kính mời quý khách đến chung vui trong ngày trọng đại của chúng tôi.&rdquo;
-        </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
-          <Side title="Gia Đình Nhà Trai" role="Chú Rể" p={w.groom} index={GROOM_INDEX} />
-          <Side title="Gia Đình Nhà Gái" role="Cô Dâu" p={w.bride} index={BRIDE_INDEX} />
-        </div>
+    <section id="loi-moi" className="py-12 px-4 bg-creamBG text-center">
+      <FloralSpray className="w-64 mx-auto -mb-2 text-weddingGold/80 ornament-draw" />
+      <div className="bg-white rounded-2xl shadow-lg px-2 py-4">
+        <OrnateFrame>
+          <Heart className="mx-auto mb-4 text-weddingRed" size={34} fill="currentColor" />
+          <p className="text-xs uppercase tracking-widest font-semibold text-weddingGold mb-1">Thư Mời Trân Trọng</p>
+          <h2 className="font-script text-5xl text-weddingRed mb-3">Lễ Thành Hôn</h2>
+          <p className="font-serif italic text-gray-600 mb-8 leading-relaxed text-sm md:text-base">
+            &ldquo;Yêu là tìm thấy hạnh phúc của mình trong hạnh phúc của người khác. Trân trọng kính mời quý khách đến chung vui trong ngày trọng đại của chúng tôi.&rdquo;
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 my-8">
+            <Reveal variant="left"><Side title="Gia Đình Nhà Trai" role="Chú Rể" p={w.groom} index={GROOM_INDEX} /></Reveal>
+            <Reveal variant="right" delay={150}><Side title="Gia Đình Nhà Gái" role="Cô Dâu" p={w.bride} index={BRIDE_INDEX} /></Reveal>
+          </div>
+        </OrnateFrame>
       </div>
     </section>
   );

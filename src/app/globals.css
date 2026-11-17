@@ -34,12 +34,24 @@ html { scroll-behavior: smooth; }
 @keyframes spin-slow { to { transform: rotate(360deg); } }
 .animate-spin-cd { animation: spin-slow 8s linear infinite; }
 
-@keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
-.reveal { opacity: 0; }
-.reveal.in { animation: fade-up 0.8s ease-out forwards; }
+/* Reveal khi cuộn: dùng transition để delay so le hoạt động mượt */
+.reveal {
+  opacity: 0;
+  transition: opacity 0.9s ease-out, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-up { transform: translateY(36px); }
+.reveal-left { transform: translateX(-40px); }
+.reveal-right { transform: translateX(40px); }
+.reveal-zoom { transform: scale(0.88); }
+.reveal-fade { transform: none; }
+.reveal.in { opacity: 1; transform: none; }
+
+/* Hoa văn vẽ nét khi hiện */
+.ornament-draw { animation: ornament-in 1.2s ease-out both; }
+@keyframes ornament-in { from { opacity: 0; transform: scale(0.92); } to { opacity: 1; transform: none; } }
 
 @media (prefers-reduced-motion: reduce) {
-  .petal, .photobooth-card, .animate-spin-cd { animation: none; }
-  .reveal { opacity: 1; }
-  .reveal.in { animation: none; }
+  .petal, .photobooth-card, .animate-spin-cd, .ornament-draw { animation: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
 }

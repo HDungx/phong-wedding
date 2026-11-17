@@ -1,16 +1,37 @@
 'use client';
 import { useEffect, useRef } from 'react';
 
-export default function Reveal({ children }: { children: React.ReactNode }) {
+type Variant = 'up' | 'left' | 'right' | 'zoom' | 'fade';
+
+/**
+ * Hiện dần khi cuộn tới. `variant` chọn hướng, `delay` (ms) để so le nhiều ảnh.
+ * `className` áp lên wrapper (vd. để giữ layout grid/aspect).
+ */
+export default function Reveal({
+  children,
+  variant = 'up',
+  delay = 0,
+  className = '',
+}: {
+  children: React.ReactNode;
+  variant?: Variant;
+  delay?: number;
+  className?: string;
+}) {
   const ref = useRef<HTMLDivElement>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
+    if (typeof IntersectionObserver === 'undefined') { el.classList.add('in'); return; }
     const io = new IntersectionObserver(([e]) => {
       if (e.isIntersecting) { el.classList.add('in'); io.disconnect(); }
-    }, { threshold: 0.1 });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     io.observe(el);
     return () => io.disconnect();
   }, []);
-  return <div ref={ref} className="reveal">{children}</div>;
+  return (
+    <div ref={ref} className={`reveal reveal-${variant} ${className}`} style={delay ? { transitionDelay: `${delay}ms` } : undefined}>
+      {children}
+    </div>
+  );
 }
